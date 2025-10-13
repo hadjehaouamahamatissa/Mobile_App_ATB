@@ -1,0 +1,102 @@
+.contact-container {
+    padding: 1rem;
+  }
+  
+  .contact-info {
+    text-align: center;
+    margin-bottom: 2rem;
+    
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: var(--ion-color-dark);
+      margin-bottom: 0.5rem;
+    }
+    
+    p {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--ion-color-medium);
+      margin-bottom: 2rem;
+    }
+  }
+  
+  .contact-methods {
+    ion-item {
+      --padding-start: 0;
+      --inner-padding-end: 0;
+      margin-bottom: 1rem;
+      
+      ion-icon {
+        font-size: 1.5rem;
+        margin-right: 1rem;
+      }
+      
+      h3 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+      }
+      
+      p {
+        font-family: 'Open Sans', sans-serif;
+        color: var(--ion-color-medium);
+        margin: 0;
+        font-size: 0.9rem;
+      }
+    }
+  }
+  
+  .contact-form {
+    ion-list {
+      background: transparent;
+      
+      ion-item {
+        --background: var(--ion-color-light);
+        --border-radius: 12px;
+        margin-bottom: 1rem;
+        --padding-start: 1rem;
+        --inner-padding-end: 1rem;
+        
+        ion-label[position="stacked"] {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 600;
+          color: var(--ion-color-dark);
+          margin-bottom: 0.5rem;
+        }
+        
+        ion-input, ion-textarea {
+          font-family: 'Open Sans', sans-serif;
+        }
+      }
+    }
+    
+    ion-note {
+      display: block;
+      margin: -0.5rem 0 1rem 1rem;
+      font-size: 0.8rem;
+    }
+  }
+  
+  .submit-button {
+    --border-radius: 12px;
+    margin-top: 1rem;
+    font-weight: 600;
+    
+    &:disabled {
+      --opacity: 0.6;
+    }
+  }
+  
+  // Responsive design
+  @media (min-width: 768px) {
+    .contact-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .contact-info {
+      margin-bottom: 3rem;
+    }
+  }
