@@ -1,0 +1,42 @@
+.detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.service-box {
+  text-align: center;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.detail-icon {
+  font-size: 60px;
+  margin-bottom: 15px;
+  animation: pop 0.5s ease-in-out;
+}
+
+.detail-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #222;
+}
+
+.detail-description {
+  font-size: 16px;
+  color: #666;
+  margin: 10px 0 20px;
+}
+
+.action-btn {
+  margin-top: 15px;
+}
+
+/* Animation effet pop */
+@keyframes pop {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}

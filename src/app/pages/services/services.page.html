@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Nos Services</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" size-md="3" *ngFor="let service of services">
+        <ion-card (click)="openDetail(service.id)" class="service-card">
+          <ion-card-content class="text-center">
+            <ion-icon [name]="service.icone" class="icon"></ion-icon>
+            <h3>{{ service.titre }}</h3>
+            <p>{{ service.description }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

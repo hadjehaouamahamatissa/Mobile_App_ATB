@@ -1,13 +1,18 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>menu</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">menu</ion-title>
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>ATB Services</ion-title>
     </ion-toolbar>
   </ion-header>
-</ion-content>
+
+  <ion-content>
+    <ion-list>
+      <ion-item button routerLink="/app/services"> Services</ion-item>
+      <ion-item button routerLink="/app/about">ℹ À propos</ion-item>
+      <ion-item button routerLink="/"> Déconnexion</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- C'est ici que les pages enfants (services, about) vont s'afficher -->
+<ion-router-outlet id="main-content"></ion-router-outlet>

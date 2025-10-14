@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/app/services"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Détail du Service</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding detail-container">
+  <div *ngIf="service" class="service-box animate">
+    <ion-icon [name]="service.icone" class="detail-icon"></ion-icon>
+    <h2 class="detail-title">{{ service.titre }}</h2>
+    <p class="detail-description">{{ service.description }}</p>
+
+    <ion-button expand="block" color="success" shape="round" class="action-btn">
+      <ion-icon name="chatbubbles-outline" slot="start"></ion-icon>
+      Contacter le support
+    </ion-button>
+  </div>
+</ion-content>
