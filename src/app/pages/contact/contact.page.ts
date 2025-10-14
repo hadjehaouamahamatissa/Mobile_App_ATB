@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
+import { IonHeader, IonInput, IonToolbar, IonButtons, IonIcon, IonItem, IonNote, IonTextarea, IonLabel, IonTitle, IonContent, IonList, IonButton, IonSpinner } from "@ionic/angular/standalone";
+
 import { ContactService } from '../../services/contact.service';
 
 @Component({
@@ -15,7 +17,7 @@ export class ContactPage implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private alertController: AlertController,
-    private contactService: ContactService
+    private contactService: contactService
   ) {
     this.contactForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
@@ -32,7 +34,7 @@ export class ContactPage implements OnInit {
       this.isSubmitting = true;
       
       try {
-        await this.contactService.sendContactForm(this.contactForm.value).toPromise();
+        await this.contactService.sendcontactForm(this.contactForm.value).toPromise();
         
         // Afficher message de succès
         const alert = await this.alertController.create({
