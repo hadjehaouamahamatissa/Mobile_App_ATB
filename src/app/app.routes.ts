@@ -32,7 +32,12 @@ export const routes: Routes = [
   },
   {
     path: 'contact',
-    loadComponent: () => import('./pages/contact/contact.page').then( m => m.ContactPage)
+    loadComponent: () => 
+      import('./pages/contact/contact.page').then( (m) => m.ContactPage),
   },
-
+  // {
+  //   path: 'services',
+  //   loadComponent: () =>
+  //     import('./services/contact.service').then((m) => m.ContactService)
+  // }, 
 ];

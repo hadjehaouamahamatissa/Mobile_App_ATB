@@ -17,6 +17,7 @@ addIcons({
 // ✅ Importation des icônes Ionicons
 import { addIcons } from 'ionicons';
 import { medkit, flash, flask } from 'ionicons/icons';
+import { provideHttpClient } from '@angular/common/http';
 
 // ✅ Enregistrement des icônes AVANT le bootstrap
 addIcons({
@@ -36,5 +37,6 @@ bootstrapApplication(AppComponent, {
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideIonicAngular(),
     provideRouter(routes, withPreloading(PreloadAllModules)),
+    provideHttpClient(),
   ],
 });
