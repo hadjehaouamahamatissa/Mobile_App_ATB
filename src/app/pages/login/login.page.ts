@@ -3,25 +3,18 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
   IonContent,
-  IonHeader,
-  IonTitle,
-  IonToolbar,
-  IonFooter,
   IonCard,
   IonCardContent,
   IonInput,
   IonButton,
-  IonIcon,
 } from '@ionic/angular/standalone';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { Preferences } from '@capacitor/preferences';
 import {
   NavController,
   LoadingController,
   ToastController,
 } from '@ionic/angular';
-
-import { IntroComponent } from '../../components/intro/intro.component';
 
 @Component({
   selector: 'app-login',
@@ -30,19 +23,12 @@ import { IntroComponent } from '../../components/intro/intro.component';
   standalone: true,
   imports: [
     IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
-    CommonModule,
-    FormsModule,
-    IonFooter,
     IonCard,
     IonCardContent,
     IonInput,
     IonButton,
-    RouterLink,
-    IonIcon,
-    IntroComponent,
+    CommonModule,
+    FormsModule,
   ],
 })
 export class LoginPage implements OnInit {
@@ -56,44 +42,44 @@ export class LoginPage implements OnInit {
     private toastCtrl: ToastController
   ) {}
 
-  ngOnInit() {
-    this.checkStorage();
+  async ngOnInit() {
+    await this.checkStorage();
   }
 
   async checkStorage() {
-    const seen = await Preferences.get({ key: this.INTRO_KEY });
-    console.log('🚀 ~ file: login.page.ts:51 ~ checkStorage ~ seen:', seen);
-    this.introSeen = seen.value === 'true';
-  }
-
-  async doLogin() {
-    // create loading spinner
-    const loading = await this.loadingCtrl.create({
-      message: 'Logging in...',
-      spinner: 'crescent',
-    });
-    await loading.present(); // present loading spinner
-
     try {
-      console.log('doLogin');
-      // simulate login (api call)
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
-      // this.router.navigate(['app']);
-      this.navCtr.navigateRoot('/app');
-    } finally {
-      await loading.dismiss(); // dismiss loading spinner
+      const seen = await Preferences.get({ key: this.INTRO_KEY });
+      this.introSeen = seen.value === 'true';
+      console.log('Intro déjà vu:', this.introSeen);
+    } catch (error) {
+      console.error('Erreur storage:', error);
+      this.introSeen = true;
     }
   }
 
-  onFinish() {
-    console.log('onFinish');
-    this.introSeen = true;
-    Preferences.set({ key: this.INTRO_KEY, value: 'true' });
+  async doLogin() {
+    const loading = await this.loadingCtrl.create({
+      message: 'Connexion en cours...',
+      spinner: 'crescent',
+    });
+    await loading.present();
+
+    try {
+      // Simulation de connexion
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      this.navCtr.navigateRoot('/home'); // Rediriger vers home
+    } finally {
+      await loading.dismiss();
+    }
   }
 
-  seeIntroAgain = () => {
+  async onFinish() {
+    this.introSeen = true;
+    await Preferences.set({ key: this.INTRO_KEY, value: 'true' });
+  }
+
+  async seeIntroAgain() {
     this.introSeen = false;
-    Preferences.remove({ key: this.INTRO_KEY });
-  };
+    await Preferences.remove({ key: this.INTRO_KEY });
+  }
 }

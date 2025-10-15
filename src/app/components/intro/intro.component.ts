@@ -1,25 +1,41 @@
-import {
-  Component,
-  CUSTOM_ELEMENTS_SCHEMA,
-  EventEmitter,
-  OnInit,
-  Output,
-} from '@angular/core';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
+import { RouterModule } from '@angular/router';
+import { addIcons } from 'ionicons';
+import { 
+  arrowForward, 
+  rocket, 
+  shieldCheckmark, 
+  people,
+  home,
+  grid,
+  mail,
+  menu 
+} from 'ionicons/icons';
 
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.scss'],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA], // add CUSTOM_ELEMENTS_SCHEMA (enables to swiper-container in template)
+  standalone: true,
+  imports: [
+    CommonModule,
+    IonicModule,
+    RouterModule
+  ]
 })
-export class IntroComponent implements OnInit {
-  @Output() finish = new EventEmitter<void>();
-  constructor() {}
-
-  ngOnInit() {}
-
-  async finishIntro() {
-    console.log('Finish Intro');
-    this.finish.emit();
+export class IntroComponent {
+  constructor() {
+    addIcons({ 
+      arrowForward, 
+      rocket, 
+      shieldCheckmark, 
+      people,
+      home,
+      grid,
+      mail,
+      menu
+    });
   }
 }
