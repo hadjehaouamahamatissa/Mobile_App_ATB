@@ -53,8 +53,19 @@ import {
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule, // ✅ INDISPENSABLE ici
-    IonicModule
+    HttpClientModule,
+    IonicModule,
+    // IonHeader,
+    // IonToolbar,
+    // IonButtons,
+    // IonMenuButton,
+    // IonTitle,
+    // IonContent,
+    // IonItem,
+    // IonLabel,
+    // IonInput,
+    // IonTextarea,
+    // IonButton,
   ]
 }) 
 export class ContactPage implements OnInit {
